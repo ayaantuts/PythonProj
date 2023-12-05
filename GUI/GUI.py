@@ -7,9 +7,9 @@ root = tk.Tk()
 root.title("Events Management System")
 root.geometry("600x600")
 
-small_font = ("Montserrat", 10)
+small_font = ("Montserrat Semibold", 10)
 font = ("Montserrat", 14)
-heading_font = ("Montserrat", 18)
+heading_font = ("Montserrat Black", 18)
 button_bg = "#4CAF50"
 button_fg = "#FFFFFF"
 text = "#212121"
@@ -86,7 +86,7 @@ def updateEvent():
 
 	# Form
 	form = tk.Frame(updateEvent_frame)
-	form.grid(padx=10, pady=10, columnspan=2)
+	form.grid(padx=5, pady=5, columnspan=2)
 
 	# Id
 	id_label = tk.Label(form, text="Enter Id: ", font=font)
@@ -103,11 +103,11 @@ def updateEvent():
 	price_entry.grid(row=1, column=1, sticky=tk.E)
 
 	# Buttons
-	btn_update = tk.Button(updateEvent_frame, text="Update", font=font, bg=button_bg, fg=button_fg, command=lambda: checkUpdateEvent(price_entry.get(), id_entry.get()))
-	btn_update.grid(columnspan=2, padx=10, pady=10, ipadx=10, ipady=10)
+	btn_update = tk.Button(updateEvent_frame, text="Update", font=font, bg=button_bg, fg=button_fg, command=lambda: checkUpdateEvent(price_entry.get(), id_entry.get()), activebackground="#48dbfb", activeforeground="#000")
+	btn_update.grid(columnspan=2, padx=5, pady=5, ipadx=5, ipady=5)
 
-	btn_back = tk.Button(updateEvent_frame, text="Back", font=font, bg=button_bg, fg=button_fg, command=landing_page)
-	btn_back.grid(columnspan=2, padx=10, pady=10, ipadx=10, ipady=10)
+	btn_back = tk.Button(updateEvent_frame, text="Back", font=font, bg=button_bg, fg=button_fg, command=landing_page, activebackground="#48dbfb", activeforeground="#000")
+	btn_back.grid(columnspan=2, padx=5, pady=5, ipadx=5, ipady=5)
 
 def showEvent():
 	destroy()
@@ -117,14 +117,14 @@ def showEvent():
 
 	# Title
 	title = tk.Label(show_frame, text="Events", font=heading_font)
-	title.pack(padx=10, pady=10)
+	title.pack(padx=5, pady=5)
 	
 	# Event Card
 	events = select_db()
 	for event in events:
 		(id, title, description, date, fees) = event
 		event_card = tk.Frame(show_frame, width=WIDTH, height=HEIGHT, bd=1, relief=tk.SOLID)
-		event_card.pack(padx=10, pady=10, ipadx=10, ipady=10)
+		event_card.pack(padx=5, pady=5, ipadx=5, ipady=5)
 
 		# Title
 		event_title = tk.Label(event_card, text=title, font=font)
@@ -146,8 +146,8 @@ def showEvent():
 		event_fees.pack(side=tk.LEFT)
 
 	# Buttons
-	btn_back = tk.Button(show_frame, text="Back", font=font, bg=button_bg, fg=button_fg, command=landing_page)
-	btn_back.pack(padx=10, pady=10, ipadx=10, ipady=10)
+	btn_back = tk.Button(show_frame, text="Back", font=font, bg=button_bg, fg=button_fg, command=landing_page, activebackground="#48dbfb", activeforeground="#000")
+	btn_back.pack(padx=5, pady=5, ipadx=5, ipady=5)
 
 def newEvent():
 	destroy()
@@ -156,11 +156,11 @@ def newEvent():
 
 	# Title
 	title = tk.Label(newEvent_frame, text="Add a new Event", font=heading_font)
-	title.pack(padx=10, pady=10)
+	title.pack(padx=5, pady=5)
 
 	# Form
 	form = tk.Frame(newEvent_frame)
-	form.pack(padx=10, pady=10)
+	form.pack(padx=5, pady=5)
 
 	# Title
 	title_label = tk.Label(form, text="Title: ", font=font)
@@ -191,11 +191,11 @@ def newEvent():
 	fees_entry.grid(row=3, column=1, sticky=tk.E)
 
 	# Buttons
-	btn_add = tk.Button(newEvent_frame, text="Add", font=font, bg=button_bg, fg=button_fg, command=lambda: checkNewEvent(title_entry.get(), description_entry.get(), date_entry.get(), fees_entry.get()))
-	btn_add.pack(padx=10, pady=10, ipadx=10, ipady=10)
+	btn_add = tk.Button(newEvent_frame, text="Add", font=font, bg=button_bg, fg=button_fg, command=lambda: checkNewEvent(title_entry.get(), description_entry.get(), date_entry.get(), fees_entry.get()), activebackground="#48dbfb", activeforeground="#000")
+	btn_add.pack(padx=5, pady=5, ipadx=5, ipady=5)
 
-	btn_back = tk.Button(newEvent_frame, text="Back", font=font, bg=button_bg, fg=button_fg, command=landing_page)
-	btn_back.pack(padx=10, pady=10, ipadx=10, ipady=10)
+	btn_back = tk.Button(newEvent_frame, text="Back", font=font, bg=button_bg, fg=button_fg, command=landing_page, activebackground="#48dbfb", activeforeground="#000")
+	btn_back.pack(padx=5, pady=5, ipadx=5, ipady=5)
 
 def deleteEvent():
 	destroy()
@@ -216,11 +216,11 @@ def deleteEvent():
 
 	# Title
 	title = tk.Label(deleteEvent_frame, text="Delete an Event", font=heading_font)
-	title.grid(columnspan=2, padx=10, pady=10)
+	title.grid(columnspan=2, padx=5, pady=5)
 
 	# Form
 	form = tk.Frame(deleteEvent_frame)
-	form.grid(columnspan=2, padx=10, pady=10)
+	form.grid(columnspan=2, padx=5, pady=5)
 
 	# Id
 	id_label = tk.Label(form, text="Enter Id: ", font=font)
@@ -230,11 +230,11 @@ def deleteEvent():
 	id_entry.grid(columnspan=2, row=0, column=2)
 
 	# Buttons
-	btn_delete = tk.Button(deleteEvent_frame, text="Delete", font=font, bg=button_bg, fg=button_fg, command=lambda: delete_db(id_entry.get()))
-	btn_delete.grid(columnspan=2, padx=10, pady=10, ipadx=10, ipady=10)
+	btn_delete = tk.Button(deleteEvent_frame, text="Delete", font=font, bg=button_bg, fg=button_fg, command=lambda: delete_db(id_entry.get()), activebackground="#48dbfb", activeforeground="#000")
+	btn_delete.grid(columnspan=2, padx=5, pady=5, ipadx=5, ipady=5)
 
-	btn_back = tk.Button(deleteEvent_frame, text="Back", font=font, bg=button_bg, fg=button_fg, command=landing_page)
-	btn_back.grid(columnspan=2, padx=10, pady=10, ipadx=10, ipady=10)
+	btn_back = tk.Button(deleteEvent_frame, text="Back", font=font, bg=button_bg, fg=button_fg, command=landing_page, activebackground="#48dbfb", activeforeground="#000")
+	btn_back.grid(columnspan=2, padx=5, pady=5, ipadx=5, ipady=5)
 
 def landing_page():
 	destroy()
@@ -244,24 +244,24 @@ def landing_page():
 
 	# Title
 	title = tk.Label(landing_frame, text="Events Management System", font=heading_font)
-	title.pack(padx=10, pady=10)
+	title.pack(padx=5, pady=5)
 
 	# Buttons
-	btn_select = tk.Button(landing_frame, text="Select", font=font, bg=button_bg, fg=button_fg, command=showEvent)
-	btn_select.pack(padx=10, pady=10, ipadx=10, ipady=10)
+	btn_select = tk.Button(landing_frame, text="Select", font=font, bg=button_bg, fg=button_fg, command=showEvent, activebackground="#48dbfb", activeforeground="#000")
+	btn_select.pack(padx=5, pady=5, ipadx=5, ipady=5)
 
-	btn_insert = tk.Button(landing_frame, text="Insert", font=font, bg=button_bg, fg=button_fg, command=newEvent)
-	btn_insert.pack(padx=10, pady=10, ipadx=10, ipady=10)
+	btn_insert = tk.Button(landing_frame, text="Insert", font=font, bg=button_bg, fg=button_fg, command=newEvent, activebackground="#48dbfb", activeforeground="#000")
+	btn_insert.pack(padx=5, pady=5, ipadx=5, ipady=5)
 
-	btn_update = tk.Button(landing_frame, text="Update", font=font, bg=button_bg, fg=button_fg, command=updateEvent)
-	btn_update.pack(padx=10, pady=10, ipadx=10, ipady=10)
+	btn_update = tk.Button(landing_frame, text="Update", font=font, bg=button_bg, fg=button_fg, command=updateEvent, activebackground="#48dbfb", activeforeground="#000")
+	btn_update.pack(padx=5, pady=5, ipadx=5, ipady=5)
 
-	btn_delete = tk.Button(landing_frame, text="Delete", font=font, bg=button_bg, fg=button_fg, command=deleteEvent)
-	btn_delete.pack(padx=10, pady=10, ipadx=10, ipady=10)
+	btn_delete = tk.Button(landing_frame, text="Delete", font=font, bg=button_bg, fg=button_fg, command=deleteEvent, activebackground="#48dbfb", activeforeground="#000")
+	btn_delete.pack(padx=5, pady=5, ipadx=5, ipady=5)
 
 	# Footer
 	footer = tk.Label(landing_frame, text="Developed by: Ayaan and Aldrin", font=font)
-	footer.pack(side=tk.BOTTOM, padx=10, pady=10)
+	footer.pack(side=tk.BOTTOM, padx=5, pady=5)
 
 landing_page()
 root.mainloop()
