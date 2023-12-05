@@ -5,11 +5,11 @@ import mysql.connector as m
 
 root = tk.Tk()
 root.title("Events Management System")
-root.geometry("500x500")
+root.geometry("600x600")
 
-small_font = ("Helvetica", 10)
-font = ("Helvetica", 14)
-heading_font = ("Helvetica", 18)
+small_font = ("Montserrat", 10)
+font = ("Montserrat", 14)
+heading_font = ("Montserrat", 18)
 button_bg = "#4CAF50"
 button_fg = "#FFFFFF"
 text = "#212121"
@@ -224,13 +224,13 @@ def deleteEvent():
 
 	# Id
 	id_label = tk.Label(form, text="Enter Id: ", font=font)
-	id_label.grid(columnspan=2, row=0, column=0, sticky=tk.E)
+	id_label.grid(columnspan=2, row=0, column=0)
 
 	id_entry = tk.Entry(form, font=font)
-	id_entry.grid(columnspan=2, row=0, column=1, sticky=tk.E)
+	id_entry.grid(columnspan=2, row=0, column=2)
 
 	# Buttons
-	btn_delete = tk.Button(deleteEvent_frame, text="Delete", font=font, bg=button_bg, fg=button_fg, command=lambda: deleteEvent(id_entry.get()))
+	btn_delete = tk.Button(deleteEvent_frame, text="Delete", font=font, bg=button_bg, fg=button_fg, command=lambda: delete_db(id_entry.get()))
 	btn_delete.grid(columnspan=2, padx=10, pady=10, ipadx=10, ipady=10)
 
 	btn_back = tk.Button(deleteEvent_frame, text="Back", font=font, bg=button_bg, fg=button_fg, command=landing_page)
