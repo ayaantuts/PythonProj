@@ -132,11 +132,11 @@ def showEvent():
 
 		# Description
 		event_description = tk.Label(event_card, text=description, font=font)
-		event_description.pack(side=tk.LEFT, )
+		event_description.pack()
 
 		# Date
 		event_date = tk.Label(event_card, text=date, font=font)
-		event_date.pack(side=tk.LEFT, )
+		event_date.pack(side=tk.LEFT, padx=5)
 
 		event_fees_label = tk.Label(event_card, text="Fees: ", font=font)
 		event_fees_label.pack(side=tk.LEFT)
