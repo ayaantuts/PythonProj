@@ -50,6 +50,9 @@ def update_db(price, id):
 	print(cursor.rowcount, "record(s) updated.")
 
 def delete_db(id):
+	if not id:
+		print("Please fill all the fields")
+		return
 	db = connect_db()
 	cursor = db.cursor()
 	cursor.execute("DELETE FROM Events WHERE id = %s", (id,))
@@ -63,7 +66,7 @@ def checkNewEvent(title, description, date, fees):
 		print("Please fill all the fields")
 
 def checkUpdateEvent(price, id):
-	if price:
+	if price and id:
 		update_db(price, id)
 	else:
 		print("Please fill all the fields")
