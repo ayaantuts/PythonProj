@@ -10,6 +10,7 @@ root.geometry("600x600")
 small_font = ("Montserrat Semibold", 10)
 font = ("Montserrat", 14)
 heading_font = ("Montserrat Black", 18)
+title_font = ("Montserrat Medium", 16)
 button_bg = "#4CAF50"
 button_fg = "#FFFFFF"
 text = "#212121"
@@ -127,7 +128,7 @@ def showEvent():
 		event_card.pack(padx=5, pady=5, ipadx=5, ipady=5)
 
 		# Title
-		event_title = tk.Label(event_card, text=title, font=font)
+		event_title = tk.Label(event_card, text=title, font=title_font)
 		event_title.pack(anchor=tk.W)
 
 		# Description
